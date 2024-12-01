@@ -2,30 +2,34 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="YulianaCapitoTarea.Views.AllNotesPage"
-             Title="AllNotesPage">
-    <!-- Add an item to the toolbar -->
+             Title="Yuliana Capito">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="Add_Clicked" IconImageSource="{FontImage Glyph='+', Color=Black, Size=22}" />
     </ContentPage.ToolbarItems>
 
-    <!-- Display notes in a list -->
     <CollectionView x:Name="notesCollection"
-                        ItemsSource="{Binding Notes}"
-                        Margin="20"
-                        SelectionMode="Single"
-                        SelectionChanged="notesCollection_SelectionChanged">
+                    ItemsSource="{Binding Notes}"
+                    Margin="20"
+                    SelectionMode="Single"
+                    SelectionChanged="notesCollection_SelectionChanged">
 
-        <!-- Designate how the collection of items are laid out -->
+        <CollectionView.Header>
+            <StackLayout BackgroundColor="#f4f4f4" Padding="10">
+                <Label Text="Yuliana Capito"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="#333" />
+            </StackLayout>
+        </CollectionView.Header>
         <CollectionView.ItemsLayout>
             <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
         </CollectionView.ItemsLayout>
-
-        <!-- Define the appearance of each item in the list -->
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <StackLayout>
-                    <Label Text="{Binding Text}" FontSize="22"/>
-                    <Label Text="{Binding Date}" FontSize="14" TextColor="White"/>
+                <StackLayout BackgroundColor="#eeeeee" Spacing="5" >
+                    <Label Text="{Binding Text}" FontSize="22" FontAttributes="Bold"/>
+                    <Label Text="{Binding Date}" FontSize="14" TextColor="Gray"/>
                 </StackLayout>
             </DataTemplate>
         </CollectionView.ItemTemplate>
