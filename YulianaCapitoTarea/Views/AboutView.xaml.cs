@@ -1,4 +1,4 @@
-namespace YulianaCapitoTarea;
+namespace YulianaCapitoTarea.Views;
 
 public partial class AboutView : ContentPage
 {
