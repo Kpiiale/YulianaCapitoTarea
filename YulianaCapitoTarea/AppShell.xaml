@@ -3,18 +3,18 @@
     x:Class="YulianaCapitoTarea.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:YulianaCapitoTarea.Views"
+    xmlns:views="clr-namespace:YulianaCapitoTarea.Views"
     Title="YulianaCapitoTarea">
 
     <TabBar>
         <ShellContent
             Title="Notes"
-            ContentTemplate="{DataTemplate local:NotesPage}"
-            Icon="{OnPlatform 'icon_notes.png', iOS='icon_notes_ios.png', MacCatalyst='icon_notes_ios.png'}" />
+            ContentTemplate="{DataTemplate views:AllNotesPage}"
+            Icon="{OnPlatform Android='icon_notes.png', iOS='icon_notes_ios.png', MacCatalyst='icon_notes_ios.png'}" />
 
         <ShellContent
             Title="About"
-            ContentTemplate="{DataTemplate local:AboutView}"
-            Icon="{OnPlatform 'icon_about.png', iOS='icon_about_ios.png', MacCatalyst='icon_about_ios.png'}" />
+            ContentTemplate="{DataTemplate views:AboutView}"
+            Icon="{OnPlatform Android='icon_about.png', iOS='icon_about_ios.png', MacCatalyst='icon_about_ios.png'}" />
     </TabBar>
 </Shell>

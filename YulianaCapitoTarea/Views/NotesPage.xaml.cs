@@ -1,9 +1,13 @@
 namespace YulianaCapitoTarea.Views;
 
+[QueryProperty(nameof(ItemId), nameof(ItemId))]
 public partial class NotesPage : ContentPage
 {
-	string _fileName = Path.Combine(FileSystem.AppDataDirectory, "notes.txt");
-	public NotesPage()
+    public string ItemId
+    {
+        set { LoadNote(value); }
+    }
+    public NotesPage()
 	{
         
         InitializeComponent();
@@ -13,19 +17,24 @@ public partial class NotesPage : ContentPage
         LoadNote(Path.Combine(appDataPath, randomFileName));
 
     }
-    private void SaveButton_Clicked(object sender, EventArgs e)
+    private async void SaveButton_Clicked(object sender, EventArgs e)
     {
-        // Save the file.
-        File.WriteAllText(_fileName, TextEditor.Text);
+        if (BindingContext is Models.Notes note)
+            File.WriteAllText(note.Filename, TextEditor.Text);
+
+        await Shell.Current.GoToAsync("..");
     }
 
-    private void DeleteButton_Clicked(object sender, EventArgs e)
+    private async void DeleteButton_Clicked(object sender, EventArgs e)
     {
-        // Delete the file.
-        if (File.Exists(_fileName))
-            File.Delete(_fileName);
+        if (BindingContext is Models.Notes note)
+        {
+            // Delete the file.
+            if (File.Exists(note.Filename))
+                File.Delete(note.Filename);
+        }
 
-        TextEditor.Text = string.Empty;
+        await Shell.Current.GoToAsync("..");
     }
     private void LoadNote(string fileName)
     {

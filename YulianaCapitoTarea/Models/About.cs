@@ -11,6 +11,8 @@ namespace YulianaCapitoTarea.Models
         public string Title => "Yuliana Capito";
         public string Version => AppInfo.VersionString;
         public string MoreInfoUrl => "https://aka.ms/maui";
-        public string Message => "This app is written in XAML and C# with .NET MAUI.";
+        public string Message => "Tengo 20 años, estoy en quinto semestre, mis hobbies son leer, jugar videojuegos y dibujar";
+        public string Image => "yo.jpg";
+
     }
 }
