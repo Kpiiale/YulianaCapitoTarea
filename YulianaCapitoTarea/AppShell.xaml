@@ -9,8 +9,8 @@
     <FlyoutItem> 
            <ShellContent
         Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        ContentTemplate="{DataTemplate local:Notes}"
+        Route="Notes" />
     </FlyoutItem>
     <FlyoutItem>
         <ShellContent
